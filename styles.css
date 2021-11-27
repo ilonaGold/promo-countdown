@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Merienda+One&family=Open+Sans:wght@400;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgb(233, 233, 145) url(./images/oils_small.jpg) no-repeat;
+  background-size: cover;
+  text-align: center;
+}
+
+.container {
+  padding: 2em;
+}
+
+h1 {
+  font-family: "Merienda One", cursive;
+  font-size: 3.75rem;
+  font-weight: 700;
+  color: rgba(101, 99, 214, 0.733);
+  margin-bottom: 0.3em;
+}
+
+#countdown {
+  background: rgba(101, 99, 214, 0.733);
+  padding: 0.5em;
+  font-size: 2.5rem;
+  color: rgb(255, 255, 255);
+  border-radius: 15px;
+  display: block;
+  margin-bottom: 0.5em;
+}
