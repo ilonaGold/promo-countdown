@@ -1,33 +1,29 @@
-import confetti from 'https://cdn.skypack.dev/canvas-confetti';
+let time = 10;
+let promoTime = time * 60;
 
-const countTo = new Date("1 Jan 2022").getTime();
+let counting = document.getElementById("countdown");
 
-const c = setInterval(() => {
+function startCountdown() {
+    let promoTimer = setInterval(() => {
+        if (promoTime <= 0) {
+            clearInterval(promoTimer);
+            counting.textContent = "Promo has ended";
+        } else {
+            promoTime--;
+            const days = Math.floor(promoTime / 3600 / 24); 
+            const hours = Math.floor(promoTime / 3600) % 24; 
+            const min = Math.floor(promoTime / 60) % 60; 
+            const sec = Math.floor(promoTime % 60); 
 
-    const endDate = new Date(countTo);
-    const currentDate = new Date();
-    const totalSeconds = (endDate - currentDate) / 1000;
-
-    const days = Math.floor(totalSeconds / 3600 / 24); 
-    const hours = Math.floor(totalSeconds / 3600) % 24; 
-    const minutes = Math.floor(totalSeconds / 60) % 60; 
-    const seconds = Math.floor(totalSeconds) % 60; 
-
-    const countDown = document.getElementById("countdown");
-
-    countDown.textContent = `${format(days)}Days ${format(hours)}Hrs : ${format(minutes)}Min : ${format(seconds)}s`;
-
-    if (totalSeconds < 0) {
-        clearInterval(c);
-        countDown.textContent = "Happy New Year! 🎉";
-        for (let i = 0; i <= 20; i++) {
-            confetti();
+            counting.innerHTML = `TIME: ${format(hours)}hr : ${format(min)}min : ${format(sec)}sec`;
         }
-   }
-
-}, 1000)
+    }, 1000)
+}
 
 function format(t) {
     return t < 10 ? `0${t}` : t;
 }
+
+startCountdown();
+
 
