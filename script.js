@@ -1,4 +1,4 @@
-let time = 10;
+let time = 15;
 let promoTime = time * 60;
 
 let counting = document.getElementById("countdown");
